@@ -1,0 +1,24 @@
+[package]
+name = "rust-browser"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+strip = "debuginfo"
+panic = "abort"
+incremental = true
+
+[profile.release-lto]
+codegen-units = 1
+inherits = "release"
+opt-level = 3
+lto = "fat"
+
+[profile.dev]
+incremental = true
+opt-level = "s"
+lto = "thin"
+
+[dependencies]
+iced = "0.13.1"
+icy_browser = { git = "https://github.com/LegitCamper/icy_browser" }
