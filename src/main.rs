@@ -2,8 +2,8 @@ use iced::event::{self, Event};
 use iced::Theme;
 use iced::{window, Element, Settings, Subscription, Task};
 use icy_browser::{
-    get_fonts, widgets, BrowserWidget, KeyType, Message as WidgetMessage, ShortcutBuilder,
-    ShortcutModifier, Ultralight,
+    get_fonts, widgets, BrowserWidget, KeyType, Message as WidgetMessage, NoCustomView,
+    ShortcutBuilder, ShortcutModifier, Shortcuts, Ultralight,
 };
 use std::time::Duration;
 
@@ -22,7 +22,7 @@ fn main() -> iced::Result {
         .settings(settings)
         .window(window)
         .antialiasing(true)
-        .theme(|_| Theme::Dark)
+        .theme(|_| Theme::CatppuccinMacchiato)
         .run_with(Browser::new)
 }
 
@@ -34,21 +34,13 @@ pub enum Message {
 }
 
 struct Browser {
-    widgets: BrowserWidget<Ultralight>,
+    widgets: BrowserWidget<Ultralight, NoCustomView>,
 }
 
 impl Browser {
     fn new() -> (Self, Task<Message>) {
-        let shortcuts = ShortcutBuilder::new()
-            .add_shortcut(
-                WidgetMessage::ToggleOverlay,
-                vec![
-                    KeyType::Modifier(ShortcutModifier::Ctrl),
-                    KeyType::Key(iced::keyboard::Key::Character("e".into())),
-                ],
-            )
-            .build();
-        let widgets = BrowserWidget::new_with_ultralight()
+        let shortcuts = create_shortcuts();
+        let widgets = BrowserWidget::new()
             .with_custom_shortcuts(shortcuts)
             .with_homepage("https://search.sawyer.services")
             .build();
@@ -77,4 +69,30 @@ impl Browser {
             event::listen().map(Message::Event),
         ])
     }
+}
+
+fn create_shortcuts() -> Shortcuts {
+    ShortcutBuilder::new()
+        .add_shortcut(
+            WidgetMessage::ToggleOverlay,
+            vec![
+                KeyType::Modifier(ShortcutModifier::Ctrl),
+                KeyType::Key(iced::keyboard::Key::Character("e".into())),
+            ],
+        )
+        .add_shortcut(
+            WidgetMessage::CreateTab,
+            vec![
+                KeyType::Modifier(ShortcutModifier::Ctrl),
+                KeyType::Key(iced::keyboard::Key::Character("t".into())),
+            ],
+        )
+        .add_shortcut(
+            WidgetMessage::CloseCurrentTab,
+            vec![
+                KeyType::Modifier(ShortcutModifier::Ctrl),
+                KeyType::Key(iced::keyboard::Key::Character("q".into())),
+            ],
+        )
+        .build()
 }

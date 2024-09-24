@@ -1961,7 +1961,7 @@ dependencies = [
 [[package]]
 name = "icy_browser"
 version = "0.1.0"
-source = "git+https://github.com/LegitCamper/icy_browser#fff5ec42079f50e1b6331636001f12c5787ce974"
+source = "git+https://github.com/LegitCamper/icy_browser#ff2af9f4f46ec47eef4e6d23a4d6330208ac860e"
 dependencies = [
  "env_home",
  "iced",
