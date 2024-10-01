@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.github.LegitCamper.Rust-Browser</id>
+  <metadata_license>CC0</metadata_license>
+  <project_license>Apache</project_license>
+  <name>Rust Browser</name>
+  <summary>A simple keyboard driven browser</summary>
+  <description>
+    <p>Rust browser written with the help of Iced and Icy_Browser lib</p>
+  </description>
+  <!-- <screenshots>
+    <screenshot type="default">
+      <image></image> 
+      <caption>Main Window</caption>
+    </screenshot> 
+  </screenshots> -->
+  <url type="homepage">https://github.com/LegitCamper/rust-browser/</url>
+  <content_rating type="oars-1.0" />
+  <releases>
+    <release version="0.0.1" date="2024-09-30">
+      <description>
+        <p>Keybaord driven Rust browser</p>
+      </description>
+    </release>
+  </releases>
+  <developer_name>Sawyer Bristol</developer_name>
+  <update_contact>SawyerBristol@gmail.com</update_contact>
+
+  <launchable type="desktop-id">com.github.LegitCamper.Rust-Browser.desktop</launchable>
+</component>

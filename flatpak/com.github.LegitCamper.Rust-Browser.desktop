@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Rust Broswer
+Comment=Keyboard-driven Rust Browser
+Type=Application
+Exec=rust-browser
+Terminal=false
+Categories=Utility;Web;
+Keywords=Rust;Flatpak;Iced;
+Icon=com.github.LegitCamper.Rust-Browser
+StartupNotify=true
