@@ -25,10 +25,10 @@
             "builddir" : true,
             "buildsystem" : "simple",
             "build-commands": [
-                "install -Dm755 -d ./ultralight/resources /app/bin/",
+                "install -Dm755 -d ./ultralight/resources /app/bin/resources",
                 "install -Dm755 ./ultralight/bin/* /app/bin",
                 "cargo fetch --manifest-path Cargo.toml --verbose",
-                "cargo build --features ci --profile release-lto --verbose",
+                "cargo build --no-default-features --profile release-lto --verbose",
                 "install -Dm755 ./target/release-lto/rust-browser -t /app/bin/",
                 "install -Dm755 ./flatpak/application.sh -t /app/bin/",
                 "install -Dm644 ./flatpak/${FLATPAK_ID}.metainfo.xml -t /app/share/metainfo/",

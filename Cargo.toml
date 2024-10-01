@@ -20,9 +20,8 @@ opt-level = "s"
 lto = "thin"
 
 [features]
-default = []
-# used in ci to disable icy_browser's build.rs
-ci = ["icy_browser/ci"]
+default = ["resources"]
+resources = ["icy_browser/ultralight-resources"]
 
 
 [dependencies]

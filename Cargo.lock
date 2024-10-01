@@ -1014,12 +1014,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "env_home"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c7f84e12ccf0a7ddc17a6c41c93326024c42920d7ee630d04950e6926645c0fe"
-
-[[package]]
 name = "equivalent"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1960,9 +1954,8 @@ dependencies = [
 [[package]]
 name = "icy_browser"
 version = "0.1.0"
-source = "git+https://github.com/LegitCamper/icy_browser#6bcb88a4300bfde5a43e62daded6eda46875603c"
+source = "git+https://github.com/LegitCamper/icy_browser#d2d7453ee862f8999492acbb0038b746e11bc296"
 dependencies = [
- "env_home",
  "iced",
  "iced_aw",
  "iced_fonts",
