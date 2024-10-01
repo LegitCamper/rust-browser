@@ -2,9 +2,9 @@
 Name=Rust Broswer
 Comment=Keyboard-driven Rust Browser
 Type=Application
-Exec=rust-browser
+Exec=application.sh
 Terminal=false
-Categories=Utility;Web;
+Categories=Utility;Network;Development;
 Keywords=Rust;Flatpak;Iced;
 Icon=com.github.LegitCamper.Rust-Browser
 StartupNotify=true

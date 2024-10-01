@@ -33,10 +33,14 @@ release-lto:
     rm -rf ultralight
 
 @build-flatpak: create-flatpak-sources
-    flatpak-builder --user --force-clean build-dir ./flatpak/$FLATPAK_ID.json
+    flatpak-builder --user build-dir ./flatpak/$FLATPAK_ID.json
 
 @install-flatpak:
-    flatpak-builder --user --install --force-clean build-dir ./flatpak/$FLATPAK_ID.json
+    flatpak-builder --user --install build-dir ./flatpak/$FLATPAK_ID.json
 
-run-flatpak:
+run-flatpak: 
     flatpak run --user $FLATPAK_ID
+
+export-flatpak: build-flatpak
+    flatpak build-export export build-dir/
+    flatpak build-bundle export Rust-Browser.flatpak $FLATPAK_ID
