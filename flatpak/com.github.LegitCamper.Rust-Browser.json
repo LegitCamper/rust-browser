@@ -25,12 +25,12 @@
             "builddir" : true,
             "buildsystem" : "simple",
             "build-commands": [
-                "install -Dm755 -d ./ultralight/resources /app/bin/resources",
-                "install -Dm755 ./ultralight/bin/* /app/bin",
                 "cargo fetch --manifest-path Cargo.toml --verbose",
                 "cargo build --no-default-features --profile release-lto --verbose",
                 "install -Dm755 ./target/release-lto/rust-browser -t /app/bin/",
                 "install -Dm755 ./flatpak/application.sh -t /app/bin/",
+                "install -Dm755 ./ultralight/bin/* /app/bin",
+                "cp -r ./ultralight/resources /app/bin/",
                 "install -Dm644 ./flatpak/${FLATPAK_ID}.metainfo.xml -t /app/share/metainfo/",
                 "install -Dm644 ./flatpak/${FLATPAK_ID}.desktop -t /app/share/applications/",
                 "install -Dm644 ./flatpak/${FLATPAK_ID}.svg -t /app/share/icons/hicolor/scalable/apps/"
@@ -41,6 +41,21 @@
                     "path" : "../"
                 },
                 "cargo-sources.json"
+            ]
+        },
+        {
+            "name": "ultralight",
+            "builddir" : true,
+            "buildsystem" : "simple",
+            "build-commands": [
+                "install -Dm755 ./ultralight/bin/* /app/bin",
+                "cp -r ./ultralight/resources /app/bin/"
+            ],
+            "sources" : [
+                {
+                    "type" : "dir",
+                    "path" : "../"
+                }
             ]
         }
     ]
