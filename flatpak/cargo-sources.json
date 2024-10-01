@@ -2,8 +2,8 @@
     {
         "type": "git",
         "url": "https://github.com/legitcamper/icy_browser",
-        "commit": "48e94e7010c3da077e3c5dbc656abda096d5f9c6",
-        "dest": "flatpak-cargo/git/icy_browser-48e94e7"
+        "commit": "d2d7453ee862f8999492acbb0038b746e11bc296",
+        "dest": "flatpak-cargo/git/icy_browser-d2d7453"
     },
     {
         "type": "archive",
@@ -2556,12 +2556,12 @@
     {
         "type": "shell",
         "commands": [
-            "cp -r --reflink=auto \"flatpak-cargo/git/icy_browser-48e94e7/.\" \"cargo/vendor/icy_browser\""
+            "cp -r --reflink=auto \"flatpak-cargo/git/icy_browser-d2d7453/.\" \"cargo/vendor/icy_browser\""
         ]
     },
     {
         "type": "inline",
-        "contents": "[package]\nname = \"icy_browser\"\nversion = \"0.1.0\"\nedition = \"2021\"\nrust-version = \"1.81.0\"\ndescription = \"iced browser widgets\"\nrepository = \"https://github.com/LegitCamper/rust-browser\"\n\n[features]\ndefault = [ \"webkit\", \"native-tls\",]\nwebkit = [ \"ultralight\",]\nultralight = [ \"ul-next\",]\nnative-tls = [ \"reqwest/native-tls\",]\nrustls-tls = [ \"reqwest/rustls-tls\",]\nci = []\n\n[dependencies]\niced_on_focus_widget = \"0.1.1\"\nrand = \"0.8.5\"\nreqwest = \"0.12.5\"\nserde = \"1.0.207\"\nserde_json = \"1.0.124\"\nsmol_str = \"0.2.2\"\nstrum_macros = \"0.26.4\"\ntempfile = \"3.12.0\"\nurl = \"2.5.2\"\n\n[profile.release]\nstrip = \"debuginfo\"\npanic = \"abort\"\nincremental = true\n\n[profile.release-lto]\ncodegen-units = 1\ninherits = \"release\"\nopt-level = 3\nlto = \"fat\"\n\n[profile.dev]\nincremental = true\nopt-level = \"s\"\nlto = \"thin\"\n\n[dependencies.iced]\nversion = \"0.13\"\nfeatures = [ \"advanced\", \"image\", \"tokio\", \"lazy\",]\n\n[dependencies.iced_aw]\nversion = \"0.10\"\nfeatures = [ \"tab_bar\", \"selection_list\",]\n\n[dependencies.iced_fonts]\nversion = \"0.1.1\"\nfeatures = [ \"bootstrap\",]\n\n[dependencies.strum]\nversion = \"0.26.3\"\nfeatures = [ \"derive\",]\n\n[dependencies.ul-next]\nversion = \"0.4\"\noptional = true\n",
+        "contents": "[package]\nname = \"icy_browser\"\nversion = \"0.1.0\"\nedition = \"2021\"\nrust-version = \"1.81.0\"\ndescription = \"iced browser widgets\"\nrepository = \"https://github.com/LegitCamper/rust-browser\"\n\n[features]\ndefault = [ \"webkit\", \"native-tls\", \"ultralight-resources\",]\nwebkit = [ \"ultralight\",]\nultralight = [ \"ul-next\",]\nultralight-resources = []\nnative-tls = [ \"reqwest/native-tls\",]\nrustls-tls = [ \"reqwest/rustls-tls\",]\n\n[dependencies]\niced_on_focus_widget = \"0.1.1\"\nrand = \"0.8.5\"\nreqwest = \"0.12.5\"\nserde = \"1.0.207\"\nserde_json = \"1.0.124\"\nsmol_str = \"0.2.2\"\nstrum_macros = \"0.26.4\"\ntempfile = \"3.12.0\"\nurl = \"2.5.2\"\n\n[profile.release]\nstrip = \"debuginfo\"\npanic = \"abort\"\nincremental = true\n\n[profile.release-lto]\ncodegen-units = 1\ninherits = \"release\"\nopt-level = 3\nlto = \"fat\"\n\n[profile.dev]\nincremental = true\nopt-level = \"s\"\nlto = \"thin\"\n\n[dependencies.iced]\nversion = \"0.13\"\nfeatures = [ \"advanced\", \"image\", \"tokio\", \"lazy\",]\n\n[dependencies.iced_aw]\nversion = \"0.10\"\nfeatures = [ \"tab_bar\", \"selection_list\",]\n\n[dependencies.iced_fonts]\nversion = \"0.1.1\"\nfeatures = [ \"bootstrap\",]\n\n[dependencies.strum]\nversion = \"0.26.3\"\nfeatures = [ \"derive\",]\n\n[dependencies.ul-next]\nversion = \"0.4\"\noptional = true\n",
         "dest": "cargo/vendor/icy_browser",
         "dest-filename": "Cargo.toml"
     },

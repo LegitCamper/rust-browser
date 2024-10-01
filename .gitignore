@@ -8,3 +8,5 @@ ultralight_libs
 ultralight-sdk-1.3.0-linux-x64.7z
 ultralight/bin
 log.txt
+export
+*.flatpak
