@@ -2,3 +2,8 @@
 logs.txt
 default
 resources
+flatpak/venv
+.flatpak-builder
+ultralight_libs
+ultralight-sdk-1.3.0-linux-x64.7z
+ultralight/bin

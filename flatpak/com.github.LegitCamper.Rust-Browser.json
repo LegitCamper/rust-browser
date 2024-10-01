@@ -1,0 +1,47 @@
+{
+    "app-id" : "com.github.LegitCamper.Rust-Browser",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version" : "23.08",
+    "sdk" : "org.freedesktop.Sdk",
+    "sdk-extensions" : [
+        "org.freedesktop.Sdk.Extension.rust-stable"
+    ],
+    "command" : "application.sh",
+    "finish-args" : [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--device=dri",
+        "--socket=wayland"
+    ],
+    "build-options" : {
+        "append-path" : "/usr/lib/sdk/rust-stable/bin",
+        "build-args" : [
+            "--share=network"
+        ]
+    },
+    "modules" : [
+        {
+            "name": "rust-browser",
+            "builddir" : true,
+            "buildsystem" : "simple",
+            "build-commands": [
+                "install -Dm755 -d ./ultralight/resources /app/bin/",
+                "install -Dm755 ./ultralight/bin/* /app/bin",
+                "cargo fetch --manifest-path Cargo.toml --verbose",
+                "cargo build --features ci --profile release-lto --verbose",
+                "install -Dm755 ./target/release-lto/rust-browser -t /app/bin/",
+                "install -Dm755 ./flatpak/application.sh -t /app/bin/",
+                "install -Dm644 ./flatpak/${FLATPAK_ID}.metainfo.xml -t /app/share/metainfo/",
+                "install -Dm644 ./flatpak/${FLATPAK_ID}.desktop -t /app/share/applications/",
+                "install -Dm644 ./flatpak/${FLATPAK_ID}.svg -t /app/share/icons/hicolor/scalable/apps/"
+            ],
+            "sources" : [
+                {
+                    "type" : "dir",
+                    "path" : "../"
+                },
+                "cargo-sources.json"
+            ]
+        }
+    ]
+}

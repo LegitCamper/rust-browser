@@ -9,8 +9,8 @@ panic = "abort"
 incremental = true
 
 [profile.release-lto]
-codegen-units = 1
 inherits = "release"
+codegen-units = 1
 opt-level = 3
 lto = "fat"
 
@@ -19,6 +19,15 @@ incremental = true
 opt-level = "s"
 lto = "thin"
 
+[features]
+default = []
+# used in ci to disable icy_browser's build.rs
+ci = ["icy_browser/ci"]
+
+
 [dependencies]
 iced = "0.13.1"
-icy_browser = { git = "https://github.com/LegitCamper/icy_browser" }
+[dependencies.icy_browser]
+git = "https://github.com/LegitCamper/icy_browser"
+default-features = false
+features = ["webkit"]
