@@ -33,7 +33,7 @@ release-lto:
     rm -rf ultralight
 
 @build-flatpak: create-flatpak-sources
-    flatpak-builder --user build-dir ./flatpak/$FLATPAK_ID.json
+    flatpak-builder --force-clean --user build-dir ./flatpak/$FLATPAK_ID.json
 
 @install-flatpak:
     flatpak-builder --user --install build-dir ./flatpak/$FLATPAK_ID.json
