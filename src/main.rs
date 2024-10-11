@@ -2,7 +2,7 @@ use iced::event::{self, Event};
 use iced::Theme;
 use iced::{window, Element, Settings, Subscription, Task};
 use icy_browser::{
-    get_fonts, widgets, BrowserWidget, KeyType, Message as WidgetMessage, NoCustomView,
+    get_fonts, IcyBrowser, KeyType, 
     ShortcutBuilder, ShortcutModifier, Shortcuts, Ultralight,
 };
 use std::time::Duration;
@@ -28,19 +28,19 @@ fn main() -> iced::Result {
 
 #[derive(Debug, Clone)]
 pub enum Message {
-    BrowserWidget(widgets::Message),
+    IcyBrowser(icy_browser::Message),
     Update,
     Event(Event),
 }
 
 struct Browser {
-    widgets: BrowserWidget<Ultralight, NoCustomView>,
+    widgets: IcyBrowser<Ultralight>,
 }
 
 impl Browser {
     fn new() -> (Self, Task<Message>) {
         let shortcuts = create_shortcuts();
-        let widgets = BrowserWidget::new()
+        let widgets = IcyBrowser::new()
             .with_custom_shortcuts(shortcuts)
             .with_homepage("https://search.sawyer.services")
             .build();
@@ -50,17 +50,17 @@ impl Browser {
 
     fn update(&mut self, message: Message) -> Task<Message> {
         match message {
-            Message::BrowserWidget(msg) => self.widgets.update(msg).map(Message::BrowserWidget),
-            Message::Update => self.widgets.force_update().map(Message::BrowserWidget),
+            Message::IcyBrowser(msg) => self.widgets.update(msg).map(Message::IcyBrowser),
+            Message::Update => self.widgets.force_update().map(Message::IcyBrowser),
             Message::Event(event) => self
                 .widgets
-                .update(widgets::Message::Event(Some(event)))
-                .map(Message::BrowserWidget),
+                .update(icy_browser::Message::IcedEvent(Some(event)))
+                .map(Message::IcyBrowser),
         }
     }
 
     fn view(&self) -> Element<Message> {
-        self.widgets.view().map(Message::BrowserWidget)
+        self.widgets.view().map(Message::IcyBrowser)
     }
 
     fn subscription(&self) -> Subscription<Message> {
@@ -74,21 +74,21 @@ impl Browser {
 fn create_shortcuts() -> Shortcuts {
     ShortcutBuilder::new()
         .add_shortcut(
-            WidgetMessage::ToggleOverlay,
+            icy_browser::Message::ToggleOverlay,
             vec![
                 KeyType::Modifier(ShortcutModifier::Ctrl),
                 KeyType::Key(iced::keyboard::Key::Character("e".into())),
             ],
         )
         .add_shortcut(
-            WidgetMessage::CreateTab,
+            icy_browser::Message::CreateTab,
             vec![
                 KeyType::Modifier(ShortcutModifier::Ctrl),
                 KeyType::Key(iced::keyboard::Key::Character("t".into())),
             ],
         )
         .add_shortcut(
-            WidgetMessage::CloseCurrentTab,
+            icy_browser::Message::CloseCurrentTab,
             vec![
                 KeyType::Modifier(ShortcutModifier::Ctrl),
                 KeyType::Key(iced::keyboard::Key::Character("q".into())),

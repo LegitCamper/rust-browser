@@ -23,9 +23,9 @@ lto = "thin"
 default = ["resources"]
 resources = ["icy_browser/ultralight-resources"]
 
-
 [dependencies]
 iced = "0.13.1"
+
 [dependencies.icy_browser]
 git = "https://github.com/LegitCamper/icy_browser"
 default-features = false
