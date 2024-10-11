@@ -556,9 +556,9 @@ dependencies = [
 
 [[package]]
 name = "cc"
-version = "1.1.28"
+version = "1.1.29"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2e80e3b6a3ab07840e1cae9b0666a63970dc28e8ed5ffbcdacbfc760c281bfc1"
+checksum = "58e804ac3194a48bb129643eb1d62fcc20d18c6b8c181704489353d13120bcd1"
 dependencies = [
  "jobserver",
  "libc",
@@ -1887,7 +1887,7 @@ dependencies = [
 [[package]]
 name = "iced_event_wrapper"
 version = "0.1.0"
-source = "git+https://github.com/LegitCamper/iced_event_wrapper#94095398d91e7b5e8016f72bb6d60dd57228ffbe"
+source = "git+https://github.com/LegitCamper/iced_event_wrapper#22151db0c8c9d7aeee655278613b19a6dcec9714"
 dependencies = [
  "iced",
 ]
@@ -2063,7 +2063,7 @@ dependencies = [
 [[package]]
 name = "icy_browser"
 version = "0.1.0"
-source = "git+https://github.com/LegitCamper/icy_browser#d7f89017ccce9d2c18c4773b53fd09f3b132d282"
+source = "git+https://github.com/LegitCamper/icy_browser#9b36b145b00a6daf4a26acd3a38f598c14307bc5"
 dependencies = [
  "clipboard-rs",
  "iced",

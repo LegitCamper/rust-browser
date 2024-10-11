@@ -4,6 +4,7 @@ use iced::{window, Element, Settings, Subscription, Task};
 use icy_browser::{
     get_fonts, IcyBrowser, KeyType, 
     ShortcutBuilder, ShortcutModifier, Shortcuts, Ultralight,
+    HomepageType,
 };
 use std::time::Duration;
 
@@ -42,7 +43,7 @@ impl Browser {
         let shortcuts = create_shortcuts();
         let widgets = IcyBrowser::new()
             .with_custom_shortcuts(shortcuts)
-            .with_homepage("https://search.sawyer.services")
+            .with_homepage(HomepageType::Url("https://search.sawyer.services"))
             .build();
 
         (Self { widgets }, Task::none())
