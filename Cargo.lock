@@ -556,9 +556,9 @@ dependencies = [
 
 [[package]]
 name = "cc"
-version = "1.1.29"
+version = "1.1.30"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "58e804ac3194a48bb129643eb1d62fcc20d18c6b8c181704489353d13120bcd1"
+checksum = "b16803a61b81d9eabb7eae2588776c4c1e584b738ede45fdbb4c972cec1e9945"
 dependencies = [
  "jobserver",
  "libc",
@@ -2063,7 +2063,7 @@ dependencies = [
 [[package]]
 name = "icy_browser"
 version = "0.1.0"
-source = "git+https://github.com/LegitCamper/icy_browser#9b36b145b00a6daf4a26acd3a38f598c14307bc5"
+source = "git+https://github.com/LegitCamper/icy_browser#bd4e535d9dd17e910a9738856d649b55fe46e573"
 dependencies = [
  "clipboard-rs",
  "iced",
